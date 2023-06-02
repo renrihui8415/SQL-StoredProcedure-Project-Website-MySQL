@@ -6,7 +6,7 @@ Please refer to _Architecture_Diagram_Website_with_AWS.png
 
 # aws-website building
 
-The repository provides Data Analysing by AWS RDS (MySQL).
+The repository provides Data Analysing for my website by using AWS RDS (MySQL).
 
 ## Requirements
 
