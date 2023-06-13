@@ -22,8 +22,8 @@ The repository provides Data Analysing with SQL.
 4) MySQL Database in the same VPC will be set up completely.
 
 Note:
-As we use MySQL command line to execute .sql files in AWS RDS for MySQL, the procedures can't return any rows when created. It is different from building procedures in tools like MySQL Workbench. If there are rows returned after creation, AWS RDS for MySQL will not continue with the rest of the .sql file. The procedures can't be creately completely. 
+As we use MySQL command line to execute .sql files in AWS RDS for MySQL, the procedures can't return any rows when created. It is different from building procedures in tools like MySQL Workbench. If there are rows returned after creation, AWS RDS for MySQL will not continue with the rest of the .sql file. The procedures can't be created completely. 
 The solution is:
 aa) to eliminate all 'SELECT' statements in the procedure that will generate results.
-bb) to use '/* ....*/' just in case that MySQL Command Line break the lines in the .sql line in an unexpected way...
+bb) to apply '/* ....*/' to comments. I coded the .sql file using different DELIMITERs and MySQL Command Line break the lines in the .sql line using one DELIMITER.
     One comment line with '--' or '#', splitted into 2 lines will definitely cause error in AWS RDS for MySQL.
