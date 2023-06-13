@@ -6,7 +6,7 @@ Please refer to _Architecture_Diagram_Website_with_AWS.png
 
 # aws-website building
 
-The repository provides Data Analysing for my website by using AWS RDS (MySQL).
+The repository provides Data Analysing with SQL.
 
 ## Requirements
 
@@ -15,9 +15,8 @@ The repository provides Data Analysing for my website by using AWS RDS (MySQL).
 * SQL Query (Stored Procedures for DataBase Init, Data Loading, Report Data Generating)
 
 ## Deploying
-(Terraform is used to execute all the queries in the shared files automatically.)
-terraform init
-terraform validate
-terraform plan
-terraform apply
-terraform destroy
+(ECS (AWS Elastic Container Service) and Lambda are used to execute all the procedures in the shared files automatically.)
+1) Once the .sql files are uploaded into s3 bucket, SQS will trigger lambda to check the files.
+2) The files info will be passed in to ECS containers.
+3) ECS will use MySQL Command Line to connect/execute all SQL scripts in the file at once.
+4) MySQL Database in the same VPC will be set up completely.
